@@ -45,6 +45,14 @@ else
     echo $VERSION > $TEXLIVE_CACHE/VERSION
 fi
 
+# Download other packages
+apt-get install wget
+tlmgr update --all
+tlmgr install titletoc
+# curl "http://mirrors.med.harvard.edu/ctan/macros/latex/contrib/titlesec/titletoc.sty" -o "$TEXLIVE_HOME/texmf-dist/tex/latex/tools/titletoc.sty"
+# cp "$TEXLIVE_HOME/texmf-dist/tex/latex/tools/titletoc.sty" "$TEXLIVE_CACHE/texmf-dist/tex/latex/tools/titletoc.sty"
+# ls -l $TEXLIVE_HOME/texmf-dist/tex/latex/tools/
+
 # Check for an essential binary to make sure it's installed
 if [ ! `which pdflatex` ]; then
     build-warn "TeX Live installation failed"
