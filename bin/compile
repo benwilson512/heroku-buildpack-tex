@@ -39,6 +39,9 @@ else
     echo $VERSION > $TEXLIVE_CACHE/VERSION
 fi
 
+# Download other packages
+curl "http://mirrors.med.harvard.edu/ctan/macros/latex/contrib/titlesec/titletoc.sty" -o $TEXLIVE_HOME/texmf-dist/tex/latex/tools/
+
 # Check for an essential binary to make sure it's installed
 if [ ! `which pdflatex` ]; then
     echo " !     TeX Live installation failed"
